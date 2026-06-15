@@ -16,7 +16,7 @@ st.sidebar.header("Configuration")
 # 1. Choose a built-in "Monster" distribution shape
 distribution_shape = st.sidebar.selectbox(
     "Choose your parent 'Monster' distribution:",
-    ["Severely Right-Skewed (Income-like)", "Bimodal (Two Peaks)", "Uniform (Flat Chaos)", "U-Shaped"]
+    ["Severely Right-Skewed (Income-like)", "Bimodal (Two Peaks)", "Uniform (Flat Chaos)", "U-Shaped", "Power Law / Pareto (Firm Size)"]
 )
 
 # Generate the underlying parent population based on user choice
@@ -34,10 +34,15 @@ elif distribution_shape == "Bimodal (Two Peaks)":
 elif distribution_shape == "Uniform (Flat Chaos)":
     # Completely flat
     population = np.random.uniform(low=0, high=100, size=N_POPULATION)
-else:  # U-Shaped
+elif:  # U-Shaped
     # Pushing values to the extremes
     base = np.random.beta(a=0.5, b=0.5, size=N_POPULATION)
     population = base * 100
+else:  # <-- ADD THIS NEW DEFAULT BLOCK FOR POWER LAW
+    # Pareto distribution (Power Law) for firm sizes (e.g., number of employees).
+    # shape=1.5 creates a heavy "fat tail" where a few firms are gargantuan.
+    # We add 1 and multiply to ensure a realistic baseline company size.
+    population = (np.random.pareto(a=1.5, size=N_POPULATION) + 1) * 10
 
 # 2. Controls for the CLT Experiment
 st.sidebar.subheader("CLT Parameters")
