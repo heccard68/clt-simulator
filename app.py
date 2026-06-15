@@ -30,6 +30,7 @@ elif distribution_shape == "Bimodal (Two Peaks)":
     # Two distinct normal distributions combined
     pop1 = np.random.normal(loc=10, scale=2, size=N_POPULATION // 2)
     pop2 = np.random.normal(loc=30, scale=3, size=N_POPULATION // 2)
+    population = np.concatenate([pop1, pop2])  # <-- ADD THIS LINE BACK IN
 elif distribution_shape == "Uniform (Flat Chaos)":
     # Completely flat
     population = np.random.uniform(low=0, high=100, size=N_POPULATION)
