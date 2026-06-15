@@ -34,7 +34,7 @@ elif distribution_shape == "Bimodal (Two Peaks)":
 elif distribution_shape == "Uniform (Flat Chaos)":
     # Completely flat
     population = np.random.uniform(low=0, high=100, size=N_POPULATION)
-elif:  # U-Shaped
+elif  # U-Shaped
     # Pushing values to the extremes
     base = np.random.beta(a=0.5, b=0.5, size=N_POPULATION)
     population = base * 100
