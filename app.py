@@ -16,7 +16,7 @@ st.sidebar.header("Configuration")
 # 1. Choose a built-in "Monster" distribution shape
 distribution_shape = st.sidebar.selectbox(
     "Choose your parent 'Monster' distribution:",
-    ["Severely Right-Skewed (Income-like)", "Bimodal (Two Peaks)", "Uniform (Flat Chaos)", "U-Shaped", "Log-Normal (Long-Tail Income)"]
+    ["Severely Right-Skewed (Income-like)", "Bimodal (Two Peaks)", "Uniform (Flat Chaos)", "U-Shaped"]
 )
 
 # Generate the underlying parent population based on user choice
@@ -24,9 +24,6 @@ np.random.seed(42)  # For reproducibility
 N_POPULATION = 50000
 
 if distribution_shape == "Severely Right-Skewed (Income-like)":
-    # Exponential/Pareto-like mix
-    population = np.random.exponential(scale=2.0, size=N_POPULATION)
-elif distribution_shape == "Severely Right-Skewed (Income-like)":
     # Exponential/Pareto-like mix
     population = np.random.exponential(scale=2.0, size=N_POPULATION)
 elif distribution_shape == "Bimodal (Two Peaks)":
