@@ -45,7 +45,7 @@ else:  # <-- ADD THIS NEW DEFAULT BLOCK FOR POWER LAW
 
 # 2. Controls for the CLT Experiment
 st.sidebar.subheader("CLT Parameters")
-sample_size = st.sidebar.slider("Sample Size ($n$)\nHow many individuals in each draw?", min_value=2, max_value=100, value=5, step=1)
+sample_size = st.sidebar.slider("Sample Size ($n$)\nHow many individuals in each draw?", min_value=2, max_value=1000, value=5, step=1)
 num_samples = st.sidebar.slider("Number of Samples\nHow many means do we calculate?", min_value=100, max_value=10000, value=2000, step=100)
 
 # Run the simulation
